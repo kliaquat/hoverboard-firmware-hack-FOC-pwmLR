@@ -415,6 +415,7 @@
  * Right sensor board cable. Connect PA2 to channel 1 and PA3 to channel 2 on receiver.
  * Channel 1: steering, Channel 2: speed.
 */
+  // #define SEP_THROTTLES                    // Channel 1: L throttle, Channel 2: R throttle.  Tank or Skid steer mode
   // #define DUAL_INPUTS                     // ADC*(Primary) + PWM(Auxiliary). Uncomment this to use Dual-inputs
   #ifdef DUAL_INPUTS
     #define FLASH_WRITE_KEY       0x1105  // Flash memory writing key. Change this key to ignore the input calibrations from the flash memory and use the ones in config.h
@@ -432,6 +433,7 @@
     #define PRI_INPUT2            3, -1000, 0, 1000, 100  // TYPE, MIN, MID, MAX, DEADBAND. See INPUT FORMAT section
   #endif
 
+  //  Only FILTER is used in SEP_THROTTLES mode...
   #define FILTER                  6553    // 0.1f [-] fixdt(0,16,16) lower value == softer filter [0, 65535] = [0.0 - 1.0].
   #define SPEED_COEFFICIENT       16384   // 1.0f [-] fixdt(1,16,14) higher value == stronger. [0, 65535] = [-2.0 - 2.0]. In this case 16384 = 1.0 * 2^14
   #define STEER_COEFFICIENT       16384   // 1.0f [-] fixdt(1,16,14) higher value == stronger. [0, 65535] = [-2.0 - 2.0]. In this case 16384 = 1.0 * 2^14. If you do not want any steering, set it to 0.
